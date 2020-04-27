@@ -2,6 +2,7 @@
                        Version 3, 28 April 2020
 
  Copyright (C) 2020 Abdul Fattah, Farid MR, Natalia Kristian, Vernando Wijaya Putra
+ 
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
 
