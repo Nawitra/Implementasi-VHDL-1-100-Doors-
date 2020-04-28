@@ -5,8 +5,11 @@ Proyek Perancangan Sistem Digital Modul 9
 Kelompok A7 
 
 Abdul Fattah Ismail / [NPM]
+
 Farid Muhammad Rahman / [NPM]
+
 Natalia Kristian / 1806200103
+
 Vernando Wijaya Putra / [NPM]
 
 
