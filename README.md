@@ -4,13 +4,13 @@ Proyek Perancangan Sistem Digital Modul 9
 
 Kelompok A7 
 
-Abdul Fattah Ismail / [NPM]
+Abdul Fattah Ismail / 1806200255
 
-Farid Muhammad Rahman / [NPM]
+Farid Muhammad Rahman / 1806148662
 
 Natalia Kristian / 1806200103
 
-Vernando Wijaya Putra / [NPM]
+Vernando Wijaya Putra / 1806200280
 
 
 Proyek ini adalah sebuah program dengan 100 pintu yang bisa dibuka dan ditutup dengan pattern tertentu,
