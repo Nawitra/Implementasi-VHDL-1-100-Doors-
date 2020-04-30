@@ -1,24 +1,24 @@
-LIBRARY ieee  ; 
-LIBRARY std  ; 
-USE ieee.std_logic_1164.all  ; 
-USE ieee.std_logic_textio.all  ; 
-USE ieee.std_logic_unsigned.all  ; 
-USE std.textio.all  ; 
-ENTITY testbench_pintu  IS 
+LIBRARY IEEE  ; 
+LIBRARY STD  ; 
+USE IEEE.STD_LOGIC_1164.ALL  ; 
+USE IEEE.STD_LOGIC_TEXTIO.ALL  ; 
+USE IEEE.STD_LOGIC_UNSIGNED.ALL  ; 
+USE STD.TEXTIO.ALL  ; 
+ENTITY TESTBENCH_PINTU  IS 
 END ; 
  
-ARCHITECTURE testbench_pintu_arch OF testbench_pintu IS
-  SIGNAL OUTPUT   :  std_logic_vector (1 to 100) := (others =>  '0')  ; 
+ARCHITECTURE TESTBENCH_PINTU_ARCH OF TESTBENCH_PINTU IS
+  SIGNAL OUTPUT   :  STD_LOGIC_VECTOR (1 TO 100) := (OTHERS =>  '0')  ; 
   SIGNAL RST   :  STD_LOGIC  ; 
   SIGNAL CLK   :  STD_LOGIC  ; 
-  COMPONENT doors  
+  COMPONENT DOORS  
     PORT ( 
-      OUTPUT  : inout std_logic_vector (1 to 100) ; 
-      RST  : in STD_LOGIC ; 
-      CLK  : in STD_LOGIC ); 
+      OUTPUT  : INOUT STD_LOGIC_VECTOR (1 TO 100) ; 
+      RST  : IN STD_LOGIC ; 
+      CLK  : IN STD_LOGIC ); 
   END COMPONENT ; 
 BEGIN
-  DUT  : doors  
+  DUT  : DOORS  
     PORT MAP ( 
       OUTPUT   => OUTPUT  ,
       RST   => RST  ,
@@ -26,37 +26,37 @@ BEGIN
 
 
 
--- "Clock Pattern" : dutyCycle = 50
--- Start Time = 0 ps, End Time = 1 ns, Period = 100 ps
-  Process
-	Begin
+-- "CLOCK PATTERN" : DUTYCYCLE = 50
+-- START TIME = 0 PS, END TIME = 1 NS, PERIOD = 100 PS
+  PROCESS
+	BEGIN
 	 CLK  <= '0'  ;
-	wait for 50 ps ;
--- 50 ps, single loop till start period.
-	for Z in 1 to 9
-	loop
+	WAIT FOR 50 PS ;
+-- 50 PS, SINGLE LOOP TILL START PERIOD.
+	FOR Z IN 1 TO 9
+	LOOP
 	    CLK  <= '1'  ;
-	   wait for 50 ps ;
+	   WAIT FOR 50 PS ;
 	    CLK  <= '0'  ;
-	   wait for 50 ps ;
--- 950 ps, repeat pattern in loop.
-	end  loop;
+	   WAIT FOR 50 PS ;
+-- 950 PS, REPEAT PATTERN IN LOOP.
+	END  LOOP;
 	 CLK  <= '1'  ;
-	wait for 50 ps ;
--- dumped values till 1 ns
-	wait;
- End Process;
+	WAIT FOR 50 PS ;
+-- DUMPED VALUES TILL 1 NS
+	WAIT;
+ END PROCESS;
 
 
--- "Constant Pattern"
--- Start Time = 50 ps, End Time = 10 ns, Period = 0 ps
-  Process
-	Begin
+-- "CONSTANT PATTERN"
+-- START TIME = 50 PS, END TIME = 10 NS, PERIOD = 0 PS
+  PROCESS
+	BEGIN
 	 RST  <= '1'  ;
-	wait for 50 ps ;
+	WAIT FOR 50 PS ;
 	 RST  <= '0'  ;
-	wait for 9950 ps ;
--- dumped values till 10 ns
-	wait;
- End Process;
+	WAIT FOR 9950 PS ;
+-- DUMPED VALUES TILL 10 NS
+	WAIT;
+ END PROCESS;
 END;
