@@ -190,7 +190,7 @@ PROCESS(CLK, RST) IS
 			EN <= '0';
 		END IF;
 	
-		IF(FALLING_EDGE(CLK)) THEN
+		IF(RISING_EDGE(CLK)) THEN
 			CASE PRESENT IS
 				--Cek apabila nilai present = 'Plan'
 				WHEN PLAN =>
