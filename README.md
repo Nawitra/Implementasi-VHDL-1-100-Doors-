@@ -1,4 +1,4 @@
-# Implementasi-VHDL-1-100-Doors
+# Implementasi-VHDL-1-Military-Tactics
 
 Proyek Perancangan Sistem Digital Modul 9
 
@@ -13,25 +13,25 @@ Natalia Kristian / 1806200103
 Vernando Wijaya Putra / 1806200280
 
 
-Proyek ini adalah sebuah program dengan 100 pintu yang bisa dibuka dan ditutup dengan pattern tertentu,
-pada awalnya semua pintu dalam kondisi tertutup dan ketika user mengklik 1 step maka user akan
-mengunjungi pintu yang pertama dan step berikutnya adalah pintu berikutnya yang merupakan pintu berikutnya
-untuk putaran pertama user akan mengunjungi semua pintu satu-persatu, setelah user mengunjungi pintu ke-100
-maka user akan kembali ke pintu pertama dan pintu berikutnya adalah pintu yang berkelipatan 2 terus sampai
-pintu ke-100 lagi sehingga kembali ke pintu pertama dengan user hanya bisa mengunjungi pintu berkelipatan 3
-dan seterusnya. Jika pintu yang dikunjungi user dalam kondisi tertutup, maka setelah dikunjungi pintu akan
-berubah kondisi menjadi kondisi terbuka dan sebaliknya.
+Proyek ini adalah sebuah program dengan menggunakan finite state machine, user dapat memainkan program ini dengan
+berbagai strategi untuk mengalahkan lawan, user akan bermain sebagai army sedangkan lawan akan dinamakan sebagai
+bandit, masing-masing army dan bandit memiliki force yang secara random akan ditambahkan atau dikurangi ke total
+force yang dimiliki masing-masing force. State yang dimiliki adalah Plan sebagai starting awal program, dimana
+user akan secara bebas memasukkan input kepada army dan bandit, dengan kedua input ini akan menentukan state berikutnya.
+State Attack adalah state dimana user army atau bandit menyerang, strategi user diuji dari setiap state. Jika army
+menang maka user akan diarahkan ke state Win dan otomatis mengarah ke state Stop dimana program berhenti secara
+otomatis, ketika bandit menang atau army kalah maka user akan diantarkan ke state Retreat dan kemudian kembali ke
+state Plan dimana permainan kembali keawal dan user dapat melanjutkan permainan. Setiap state memiliki table truth
+yang berbeda-beda sehingga direkomendasikan untuk membaca truth table terlebih dahulu dan kemudian memainkan program ini
+sebagai test untuk menguji strategi user.
 
 
 Gambaran cara kerja program ini adalah sebagai berikut :
 
-1. User akan start dari pintu 1
-2. User menjalankan 1 step dan user akan mengunjungi pintu 1 dan mengubah kondisi dari pintu 1
-   Note :       Jika pintu dalam kondisi terbuka maka setelah user mengunjungi pintu tersebut maka kondisinya
-                akan berubah menjadi pintu yang tertutup, sedangkan jika pintu tersebut dalam kondisi tertutup
-                maka kondisi pintu tersebut akan berubah menjadi pintu dengan kondisi terbuka dan seterusnya.
-3. User akan melanjutkan mengunjungi pintu-pintu dengan kelipatan 1 sampai menuju pintu ke-100
-4. User akan dikembalikan ke pintu 1 (belum dikunjungi) dan user hanya bisa mengunjungi pintu berkelipatan 2
-5. Ketika user menjalan 1 step pada putaran ke 2 maka setelah user akan mengunjungi pintu 2, 4, 6, 8, ... dst
-6. User akan melanjutkan mengunjungi pintu-pintu dengan kelipatan 2 sampai menuju pintu ke-100
-7. Kegiatan ini akan berulang dan kelipatan maksimal adalah 5.
+1. User diarahkan untuk mengisi value dari army dan bandit
+2. Program akan mengarahkan user ke state baru dimana user diperbolehkan untuk melakukan ubah value dari tindakan
+   army ataupun bandit.
+3. Program memiliki fitur AF (Army Force) dan BF (Bandit Force) dimana kedua value ini mempengaruhi hasil variable En.
+4. Penentuan state berikutnya dipengaruhi oleh value army, bandit, dan enable.
+5. User jika mencapai state Retreat maka user tidak berhasil memenangkan permainan dan kembali ke state Plan.
+6. User jika mencapai state Win maka user berhasil memenangkan permainan dan diarahkan ke state Stop.
