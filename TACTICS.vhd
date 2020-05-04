@@ -188,7 +188,6 @@ PROCESS(CLK, RST, AF, BF, TEMP) IS
 	
 		IF(RST='1') THEN
 			TEMP 	 <= '0';
-			OUTPUT <= '0';
 		ELSIF(RISING_EDGE(CLK)) THEN
 			CASE PRESENT IS
 				--Cek apabila nilai present = 'Plan'
@@ -256,11 +255,7 @@ PROCESS(CLK, RST, AF, BF, TEMP) IS
 				WHEN OTHERS => NULL;
 			END CASE;
 			PRESENT <= NEXT_STATE;
-			TEMP <= TEMP;
-			OUTPUT <= TEMP;
-		ELSE
-			TEMP <= TEMP;
-			OUTPUT <= TEMP;
 		END IF;
 END PROCESS;
+OUTPUT <= TEMP;
 END BEHAVIOUR;
